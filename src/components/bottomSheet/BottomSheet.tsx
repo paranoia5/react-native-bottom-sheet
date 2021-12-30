@@ -9,6 +9,7 @@ import React, {
 import { Platform } from 'react-native';
 import invariant from 'invariant';
 import Animated, {
+  GestureHandlerRootView,
   useAnimatedReaction,
   useSharedValue,
   useAnimatedStyle,
@@ -1548,6 +1549,7 @@ const BottomSheetComponent = forwardRef<BottomSheet, BottomSheetProps>(
       },
     });
     return (
+      <GestureHandlerRootView>
       <BottomSheetProvider value={externalContextVariables}>
         <BottomSheetInternalProvider value={internalContextVariables}>
           <BottomSheetGestureHandlersProvider
@@ -1637,6 +1639,7 @@ const BottomSheetComponent = forwardRef<BottomSheet, BottomSheetProps>(
           </BottomSheetGestureHandlersProvider>
         </BottomSheetInternalProvider>
       </BottomSheetProvider>
+    </GestureHandlerRootView>
     );
   }
 );
